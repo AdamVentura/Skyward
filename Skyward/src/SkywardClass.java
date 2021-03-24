@@ -2,7 +2,8 @@ package skyward;
 import java.util.Scanner;
 class SkywardClass {
 private int studenthere[],studentids[];
-private int x,gonecount,repeat;
+private int x,y, gonecount,repeat,chosenstudent;
+private int schedule[][],chosenclass;
 	Scanner reader=new Scanner(System.in);
 	
 
@@ -18,9 +19,10 @@ public SkywardClass()
 		studentids[x]=x+1;
 		
 	}
+	schedule=new int[10][4];
 }
 
-
+//read in the attendence
 public void findattendence()
 {
 	System.out.println("Who is here, enter a 1 for here, 0 for missing");
@@ -46,7 +48,7 @@ public void findattendence()
 		
 	}	
 }
-//
+//print out the stuff about the attendence
 public void printattendence()
 {
 	//reset the count varable to 0 at the start of the method
@@ -71,6 +73,58 @@ public void printattendence()
 		
 	}
 }
+//make the schedule
+public void makeschedule()
+{
+	while (repeat==1)
+	{
+		repeat=0;
+		System.out.println("Which students scehdule would you like to input(enter ID number)");
+		chosenstudent=reader.nextInt()-1;
+		if(chosenstudent>10||chosenstudent<1)
+		{
+			repeat=1;
+			System.out.println("Plese enter a student id that is 1-10");
+		}
+	}
+	printclassoptions();
+	for(y=0;y<4;y++)
+	{
+		System.out.println("What class would you like for your block" +y);
+		
+		while(repeat==1)
+		{
+			repeat=0;
+			System.out.println("What class would you like for your block" +y);
+
+			chosenclass=reader.nextInt();
+			if(chosenclass>7||chosenstudent<1)
+			{
+				repeat=1;
+				System.out.println("Plese enter a class number that is listed");
+			}
+		}
+	}
+	
+		
+	
+	
+}
+
+public void printclassoptions()
+{
+	System.out.println("1. Math");
+	System.out.println("2. English");
+	System.out.println("3. Science");
+	System.out.println("4. History");
+	System.out.println("5. Engeniering");
+	System.out.println("6. Culinary");
+	System.out.println("7. Comp Sci");
+	System.out.println("When refering to classes use the classes number");
+	
+}
+
+
 
 
 }
