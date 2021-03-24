@@ -8,7 +8,7 @@ private int schedule[][],chosenclass;
 	
 
 
-
+//constructor
 public SkywardClass()
 {
 	studenthere=new int [10];
@@ -25,8 +25,9 @@ public SkywardClass()
 //read in the attendence
 public void findattendence()
 {
+	//give instructions
 	System.out.println("Who is here, enter a 1 for here, 0 for missing");
-	
+	//go through all 10 students
 	for(x=0;x<10;x++)
 	{
 		//have a loop that will repeat if the if the input is incorrect
@@ -73,42 +74,54 @@ public void printattendence()
 		
 	}
 }
-	//This method chooses the student whose grades/schedule you want to edit
-	public int ReadInStudent() {
+//read in student ID
+public int ReadInStudent() {
+	//set repeat back to 1 so we can enter the loop
 	repeat=1;
+	//repeat while ther reape varable is equal to 1
 	while (repeat==1){
 		repeat=0;
-		System.out.println("Which students scehdule would you like to input(enter ID number)");
+		//ask for the student
+		System.out.println("Which students will you be refering to(enter ID number)");
+		//subtra 1 for the array
 		chosenstudent=reader.nextInt()-1;
+		//if the numberisnt in the corrrect range then say so and ask for it again
 		if(chosenstudent>10||chosenstudent<0){
 			repeat=1;
 			System.out.println("Plese enter a student id that is 1-10");
 		}
 	}
+	//return the student id
 	return chosenstudent;
 }
 //make the schedule
 public void makeschedule()
 {
-	
+	//read in the student we want to work with
 	chosenstudent=ReadInStudent();
+	//print out the class options to the user
 	printclassoptions();
+	//go through each class throughout the day
 	for(y=0;y<4;y++)
 	{
+		//have a to repeat with wrong inputs
 		repeat=1;
 		while(repeat==1)
 		{
 			repeat=0;
+			//ask for and take in the class they want to take
 			System.out.println("What class would you like for your block" +(y+1));
 
 			chosenclass=reader.nextInt();
-			if(chosenclass>7||chosenstudent<1)
+			//if it isnt a class offered say that and set repeat to 1
+			if(chosenclass>7||chosenclass<1)
 			{
 				repeat=1;
 				System.out.println("Plese enter a class number that is listed");
 			}
 			
 		}
+		//set the chosen class to the spot in the 2-d array
 		schedule[chosenstudent][y]=chosenclass;
 	}
 	
@@ -119,11 +132,14 @@ public void makeschedule()
 //print out the schedule for a given student
 public void printschedule()
 {
-	
+	//use the method to read in which student they want to be talking about
 	chosenstudent=ReadInStudent();
+	//say what we are printing out
 	System.out.println("Their schedule from the start of their day to the end is ");
+	//go through all 4 classes
 	for(y=0;y<4;y++)
 	{
+		//have a switch that will take the number for the class and print it back out as the names of the class
 	switch (schedule[chosenstudent][y])
 	{
 	case 1:
@@ -147,6 +163,7 @@ public void printschedule()
 	case 7:
 		System.out.println("Comp Sci");
 		break;
+		//their isnt a valid number, or it is 0 print out that their isnt yet a class in te slot
 	default:
 	System.out.println("Their isnt a class in this slot");
 	
@@ -160,8 +177,10 @@ public void printschedule()
 	
 	
 }
+//print out all of the options for the different classes
 public void printclassoptions()
 {
+	//print out all of the options for classes to take and their corrisponding number
 	System.out.println("1. Math");
 	System.out.println("2. English");
 	System.out.println("3. Science");
@@ -169,7 +188,7 @@ public void printclassoptions()
 	System.out.println("5. Engeniering");
 	System.out.println("6. Culinary");
 	System.out.println("7. Comp Sci");
-	System.out.println("When refering to classes use the classes number");
+	System.out.println("When refering to classes use the class's number");
 	
 }
 
