@@ -90,16 +90,16 @@ public void printattendence()
 //make the schedule
 public void makeschedule()
 {
-	ReadInStudent();
+	
+	chosenstudent=ReadInStudent();
 	printclassoptions();
 	for(y=0;y<4;y++)
 	{
-		System.out.println("What class would you like for your block" +y);
-		
+		repeat=1;
 		while(repeat==1)
 		{
 			repeat=0;
-			System.out.println("What class would you like for your block" +y);
+			System.out.println("What class would you like for your block" +(y+1));
 
 			chosenclass=reader.nextInt();
 			if(chosenclass>7||chosenstudent<1)
@@ -107,14 +107,59 @@ public void makeschedule()
 				repeat=1;
 				System.out.println("Plese enter a class number that is listed");
 			}
+			
 		}
+		schedule[chosenstudent][y]=chosenclass;
 	}
 	
 		
 	
 	
 }
-
+//print out the schedule for a given student
+public void printschedule()
+{
+	
+	chosenstudent=ReadInStudent();
+	System.out.println("Their schedule from the start of their day to the end is ");
+	for(y=0;y<4;y++)
+	{
+	switch (schedule[chosenstudent][y])
+	{
+	case 1:
+		System.out.println("Math");
+		break;
+	case 2:
+		System.out.println("English");
+		break;	
+	case 3:
+		System.out.println("Sciense");
+		break;
+	case 4:
+		System.out.println("History");
+		break;
+	case 5:
+		System.out.println("Engeniering");
+		break;
+	case 6:
+		System.out.println("Culinary");
+		break;	
+	case 7:
+		System.out.println("Comp Sci");
+		break;
+	default:
+	System.out.println("Their isnt a class in this slot");
+	
+	
+	}
+		
+		
+	}
+	
+	
+	
+	
+}
 public void printclassoptions()
 {
 	System.out.println("1. Math");
