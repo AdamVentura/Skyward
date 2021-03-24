@@ -73,20 +73,23 @@ public void printattendence()
 		
 	}
 }
+	//This method chooses the student whose grades/schedule you want to edit
+	public int ReadInStudent() {
+		while (repeat==1){
+			repeat=0;
+			System.out.println("Which students scehdule would you like to input(enter ID number)");
+			chosenstudent=reader.nextInt()-1;
+			if(chosenstudent>10||chosenstudent<1){
+				repeat=1;
+				System.out.println("Plese enter a student id that is 1-10");
+			}
+		}
+		return chosenstudent;
+	}
 //make the schedule
 public void makeschedule()
 {
-	while (repeat==1)
-	{
-		repeat=0;
-		System.out.println("Which students scehdule would you like to input(enter ID number)");
-		chosenstudent=reader.nextInt()-1;
-		if(chosenstudent>10||chosenstudent<1)
-		{
-			repeat=1;
-			System.out.println("Plese enter a student id that is 1-10");
-		}
-	}
+	ReadInStudent();
 	printclassoptions();
 	for(y=0;y<4;y++)
 	{
