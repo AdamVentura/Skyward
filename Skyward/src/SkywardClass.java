@@ -4,8 +4,9 @@ class SkywardClass {
 private int studenthere[],studentids[];
 private int x,y, gonecount,repeat,chosenstudent;
 private int schedule[][],chosenclass;
+private double total, studentscore, percentage, grades[][];
 	Scanner reader=new Scanner(System.in);
-	
+
 
 
 //constructor
@@ -24,6 +25,7 @@ public SkywardClass()
 		
 	}
 	schedule=new int[10][4];
+	grades=new double[10][4];
 }
 
 //read in the attendence
@@ -53,6 +55,7 @@ public void findattendence()
 		
 	}	
 }
+
 //print out the stuff about the attendence
 public void printattendence()
 {
@@ -79,6 +82,7 @@ public void printattendence()
 		}
 	}
 }
+
 //read in student ID
 public int ReadInStudent() {
 	//set repeat back to 1 so we can enter the loop
@@ -99,6 +103,7 @@ public int ReadInStudent() {
 	//return the student id
 	return chosenstudent;
 }
+
 //make the schedule
 public void makeschedule()
 {
@@ -134,6 +139,7 @@ public void makeschedule()
 	
 	
 }
+
 //print out the schedule for a given student
 public void printschedule()
 {
@@ -182,22 +188,39 @@ public void printschedule()
 	
 	
 }
-	//This method finds the percentage and grades for that student
-	public void Choosegrades() {
+//This method finds the percentage and grades for that student
+	public void Choosegrades() 
+	{
+		//find student that we will be working on
 		chosenstudent=ReadInStudent();
+		//go through each block
 		for(y=0;y<4;y++){
-			System.out.println("You are currently adding in grades for student " + chosenstudent + " for block " + (y + 1) );
+			//say the student that you will be working on and ask for and take in the points total and the points that they have
+			System.out.println("You are currently adding in grades for student " + (chosenstudent+1) + " for block " + (y + 1) );
 			System.out.println("Please enter in the total score: ");
 			total = reader.nextInt();
 			System.out.println("Please enter in the student's score: ");
 			studentscore = reader.nextInt();
+			//take the total points and divide them by what is avalable then time 100 to get it to a percent
 			percentage = (studentscore/total);
-			grades[chosenstudent][y] = percentage * 10;
+			grades[chosenstudent][y] = percentage * 100;
 		}
-		for(y=0;y<4;y++){
-			System.out.println((grades[chosenstudent][y]) + "%");
-		}	
+		
 	}
+	//method thta prints out the grades of a chosen student 
+public void printgrades()
+{
+	//find the student that they want to find the grades of
+	chosenstudent=ReadInStudent();
+	//go through each block of the day
+	for(y=0;y<4;y++){
+		//say the block student and grades 
+			System.out.println(("The grades for student " +chosenstudent+" for block "+(y+1)+" is "+ grades[chosenstudent][y]) + "%");
+		}	
+	
+	
+	
+}
 //print out all of the options for the different classes
 public void printclassoptions()
 {
