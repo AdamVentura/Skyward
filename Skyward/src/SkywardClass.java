@@ -28,7 +28,7 @@ public SkywardClass()
 	grades=new double[10][4];
 }
 
-//read in the attendence
+//read in the attendance
 public void findattendence()
 {
 	//give instructions
@@ -39,9 +39,9 @@ public void findattendence()
 		//have a loop that will repeat if the if the input is incorrect
 		do
 		{
-			//reset repet varable
+			//reset repeat variable
 			repeat=0;
-			//ask for and take in the attedntence of a specific student 
+			//ask for and take in the attendance of a specific student 
 		System.out.println("Student "+studentids[x]+":");
 		studenthere[x]=reader.nextInt();
 		//if the entered number was not a 1 or 0 then ask for a 1 or 0 and set repeat to 1 so the loop will repeat
@@ -50,18 +50,18 @@ public void findattendence()
 			System.out.println("Please enter a 1 or a 0, try again");
 			repeat=1;
 			}
-		//repeat untill the repeat isnt set to 1
+		//repeat until the repeat isn't set to 1
 		}while (repeat==1);
 		
 	}	
 }
 
-//print out the stuff about the attendence
+//print out the stuff about the attendance
 public void printattendence()
 {
-	//reset the count varable to 0 at the start of the method
+	//reset the count variable to 0 at the start of the method
 	gonecount=0;
-	//go through each studnet 
+	//go through each student 
 	for(x=0;x<10;x++)
 	{
 		//if the her count is 0 then add 1 to the gone count
@@ -73,7 +73,7 @@ public void printattendence()
 	if(gonecount>0) 
 	{
 		System.out.println("The list of students that were missing is ");
-		//go through each stsuent, if they were set to 0 then print out that they were gone
+		//go through each student, if they were set to 0 then print out that they were gone
 		for(x=0;x<10;x++)
 		{
 			if(studenthere[x]==0)
@@ -87,14 +87,14 @@ public void printattendence()
 public int ReadInStudent() {
 	//set repeat back to 1 so we can enter the loop
 	repeat=1;
-	//repeat while ther reape varable is equal to 1
+	//repeat while the variable is equal to 1
 	while (repeat==1){
 		repeat=0;
 		//ask for the student
 		System.out.println("Which students will you be refering to(enter ID number)");
-		//subtra 1 for the array
+		//subtract 1 for the array
 		chosenstudent=reader.nextInt()-1;
-		//if the numberisnt in the corrrect range then say so and ask for it again
+		//if the number isn't in the correct range then say so and ask for it again
 		if(chosenstudent>10||chosenstudent<0){
 			repeat=1;
 			System.out.println("Plese enter a student id that is 1-10");
@@ -174,7 +174,7 @@ public void printschedule()
 	case 7:
 		System.out.println("Comp Sci");
 		break;
-		//their isnt a valid number, or it is 0 print out that their isnt yet a class in te slot
+		//their isnt a valid number, or it is 0 print out that their isn't yet a class in the slot
 	default:
 	System.out.println("Their isnt a class in this slot");
 	
@@ -201,17 +201,17 @@ public void printschedule()
 			total = reader.nextInt();
 			System.out.println("Please enter in the student's score: ");
 			studentscore = reader.nextInt();
-			//take the total points and divide them by what is avalable then time 100 to get it to a percent
+			//take the total points and divide them by what is available then time 100 to get it to a percent
 			percentage = (studentscore/total);
 			grades[chosenstudent][y] = percentage * 100;
 		}
 		
 	}
-	//method thta prints out the grades of a chosen student 
+	// Method that prints out the grades of a chosen student 
 public void printgrades()
 {
 	//find the student that they want to find the grades of
-	chosenstudent=ReadInStudent();
+	chosenstudent = ReadInStudent();
 	//go through each block of the day
 	for(y=0;y<4;y++){
 		//say the block student and grades 
@@ -224,7 +224,7 @@ public void printgrades()
 //print out all of the options for the different classes
 public void printclassoptions()
 {
-	//print out all of the options for classes to take and their corrisponding number
+	//print out all of the options for classes to take and their corresponding number
 	System.out.println("1. Math");
 	System.out.println("2. English");
 	System.out.println("3. Science");
