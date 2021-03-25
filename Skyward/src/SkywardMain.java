@@ -15,57 +15,61 @@ public class SkywardMain {
 		System.out.println("Hello, welcome to Skyward.");
 		// Use while loop to keep program running
 		while (bOn == true) {
-		
-		// Welcome user and prompt user to choose option
-		System.out.println("If you'd like to quit this program enter '0'. "
-				+ "\nIf not, which of the following actions would you like to do (enter in a number 1-6):"
+		// Add a line of whitespace
+		System.out.println();
+			// Welcome user and prompt user to choose option
+			System.out.println("Which of the following actions would you like to do (enter in a number 0-6):"
+				+ "\n0. Quit Program"
 				+ "\n1. Take Attendance"
 				+ "\n2. Report Attendance"
 				+ "\n3. Schedule Classes"
 				+ "\n4. View Classes"
 				+ "\n5. Assign Grades"
 				+ "\n6. Report Grades");
-		// Store answer in variable
-		int iChoice = reader.nextInt();
-		// Use switch statements to determine which method to call.
-		switch (iChoice){
+			// Add a line of white space
+			System.out.println();
+			// Store answer in variable
+			int iChoice = reader.nextInt();
+			// Use switch statements to determine which method to call.
+			switch (iChoice){
 		
-		case 0:
-			System.out.println("You have quit the program.");
-			bOn = false;
-			break;
+			case 0:
+				System.out.println("You have quit the program.");
+				bOn = false;
+				break;
 		
-		case 1:
-			sc.findattendence();
-			break;
+			case 1:
+				sc.findattendence();
+				break;
 		
-		case 2:
-			sc.printattendence();
-			break;
+			case 2:
+				sc.printattendence();
+				break;
 			
-		case 3:
-			sc.makeschedule();
-			break;
+			case 3:
+				sc.makeschedule();
+				break;
 		
-		case 4:
-			sc.printschedule();
-			break;
+			case 4:
+				sc.printschedule();
+				break;
 			
-		case 5:
+			case 5:
 			
-			break;
+				break;
 			
-		case 6:
-			break;
+			case 6:
+				break;
 			
-		default:
-			System.out.println("Please enter in a number 1-6.");
-			break;
+			default:
+				System.out.println("Please enter in a number 1-6.");
+				break;
 		
-		}
+			}
 		
 
 	}
 
 }
 }
+
