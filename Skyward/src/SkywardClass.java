@@ -182,6 +182,22 @@ public void printschedule()
 	
 	
 }
+	//This method finds the percentage and grades for that student
+	public void Choosegrades() {
+		chosenstudent=ReadInStudent();
+		for(y=0;y<4;y++){
+			System.out.println("You are currently adding in grades for student " + chosenstudent + " for block " + (y + 1) );
+			System.out.println("Please enter in the total score: ");
+			total = reader.nextInt();
+			System.out.println("Please enter in the student's score: ");
+			studentscore = reader.nextInt();
+			percentage = (studentscore/total);
+			grades[chosenstudent][y] = percentage * 10;
+		}
+		for(y=0;y<4;y++){
+			System.out.println((grades[chosenstudent][y]) + "%");
+		}	
+	}
 //print out all of the options for the different classes
 public void printclassoptions()
 {
