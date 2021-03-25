@@ -12,6 +12,10 @@ private int schedule[][],chosenclass;
 public SkywardClass()
 {
 	studenthere=new int [10];
+	for(x=0;x<10;x++)
+	{
+		studenthere[x]=1;
+	}
 	studentids=new int [10];
 	//make the student id numbers
 	for(x=0;x<10;x++)
@@ -59,19 +63,20 @@ public void printattendence()
 	{
 		//if the her count is 0 then add 1 to the gone count
 		if(studenthere[x]==0)
-			gonecount++;
-		
-			
+			gonecount++;			
 	}
 	//print out how many people were gone in total
 	System.out.println("Their was " +gonecount+" students missing");
-	System.out.println("The students list of students that were missing was...");
-	//go through each stsuent, if they were set to 0 then print out that they were gone
-	for(x=0;x<10;x++)
+	if(gonecount>0) 
 	{
-		if(studenthere[x]==0)
-			System.out.println("Student "+studentids[x]);
+		System.out.println("The list of students that were missing is ");
+		//go through each stsuent, if they were set to 0 then print out that they were gone
+		for(x=0;x<10;x++)
+		{
+			if(studenthere[x]==0)
+				System.out.println("Student "+studentids[x]);
 		
+		}
 	}
 }
 //read in student ID
@@ -191,8 +196,6 @@ public void printclassoptions()
 	System.out.println("When refering to classes use the class's number");
 	
 }
-
-
 
 
 }
