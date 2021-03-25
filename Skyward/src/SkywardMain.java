@@ -55,10 +55,11 @@ public class SkywardMain {
 				break;
 			
 			case 5:
-			
+				sc.Choosegrades();
 				break;
 			
 			case 6:
+				sc.printgrades();
 				break;
 			
 			default:
